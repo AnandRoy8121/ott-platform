@@ -16,7 +16,6 @@ const SignSignUpForm = () => {
   const [email, setEmail] = useState("");
   const [validationMessage, setValdationMessage] = useState(null);
   const [isSignIn, setIsSignIn] = useState(true);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
@@ -48,7 +47,7 @@ const SignSignUpForm = () => {
         setEmail("");
         setPassword("");
         setName("");
-        navigate("/browse");
+      
       } catch (error) {
         console.log(error.message);
         setValdationMessage(error.code + " : " + error.message);
@@ -66,7 +65,7 @@ const SignSignUpForm = () => {
         // console.log(user)
         setEmail("");
         setPassword("");
-        navigate("/browse");
+
       } catch (error) {
         console.log(error.message);
         setValdationMessage(error.code + " : " + error.message);
