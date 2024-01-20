@@ -14,11 +14,12 @@ const useMovieTrailer = (videoID) => {
       TMDB_APIOptions
     );
     const json = await data.json();
+    console.log(json)
 
-    const filteredVideo = json.results.filter(
+    const filteredVideo = json.results?.filter(
       (video) => video.type === "Trailer"
     );
-    const trailer = filteredVideo.length ? filteredVideo[0] : json.results[0];
+    const trailer = filteredVideo?.length ? filteredVideo[0] : json?.results[0];
     dispatch(addTrailerVideo(trailer));
   };
 };

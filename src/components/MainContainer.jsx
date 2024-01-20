@@ -7,9 +7,9 @@ const MainContainer = () => {
     const movies = useSelector(store => store.movies?.nowPlayingMovies)
 
     if(!movies) return
-    const mainMovie = movies[0];
+    const mainMovie = movies[2];
   return (
-    <div className='relative'>
+    <div className='relative aspect-video'>
         <VideoTitle title={mainMovie.title} desc={mainMovie.overview}/>
         <VideoBackground videoID = {mainMovie.id}/>
     </div>

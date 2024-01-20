@@ -9,7 +9,6 @@ const useNowPlayingMovies = ()=>{
   useEffect(()=>{
     nowPlayingMovies()
   },[])
-
   const nowPlayingMovies = async()=>{
     const data = await fetch(TMDB_NowPlayingMoviesAPI,TMDB_APIOptions);
     const json = await data.json()

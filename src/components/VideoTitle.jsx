@@ -2,16 +2,16 @@ import React from "react";
 
 const VideoTitle = ({ title, desc }) => {
   return (
-    <div className="flex flex-col absolute mt-[30%] ml-[10%] w-[50%] md:w-[90%] gap-1 md:gap-2 z-50">
+    <div className="sm:flex flex-col absolute mt-[10%] hidden sm:mt-[20%] md:mt-[30%] ml-[10%] w-[50%] md:w-[90%] gap-1 md:gap-2 z-50">
       <div className="flex flex-col gap-1 md:gap-2 rounded-lg bg-gradient-to-r from-black  w-[40%] px-4 md:px-10 group duration-1000 hover:scale-125 hover:-translate-y-4">
-        <h1 className="text-white text-xl md:text-3xl font-bold uppercase pt-2">
+        <h1 className="text-white md:text-xl lg:text-3xl font-bold uppercase pt-2">
           {title}
         </h1>
         <p className="text-white text-[10px] font-semibold pb-4 hidden group-hover:block">
           {desc}
         </p>
       </div>
-      <div className="flex gap-2 md:gap-4">
+      <div className="md:flex gap-2 md:gap-4 hidden">
         <button className="bg-black text-xs md:text-[16px] hover:text-black duration-300 hover:bg-white px-1 md:px-3 md:py-1 text-white font-semibold rounded-md">
           <div className="flex gap-1 items-center">
             <svg
