@@ -6,7 +6,7 @@ export const TMDB_APIOptions = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNGUxNjk4NzFhNGVlY2ZhM2U4YTc1ZDkyYmM1ZmUxOCIsInN1YiI6IjY1YWE4ZTUyZTI2N2RlMDEzMWEzMTliZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rPPGs_DKodTE5HCjwclklq21E4UuhLWy0yQPTNX_9iU'
+    Authorization: process.env.REACT_APP_TMDB_AccessToken
   }
 };
 
