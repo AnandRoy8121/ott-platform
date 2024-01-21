@@ -6,11 +6,13 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { LOGO } from "../utils/constants";
 import UserIcon from "./UserIcon";
+import { toggleGPTSearchValue } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const selector = useSelector((store) => store.user);
+  const isGPTSearch = useSelector((store) => store.gpt.showGPTSearch)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -26,10 +28,17 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGPTSearchButton =()=>{
+    dispatch(toggleGPTSearchValue())
+  }
+
   return (
     <div className="flex items-center px-6 py-1 w-full absolute bg-gradient-to-b from-black justify-between z-50">
       <img className="w-24 h-20 md:w-32 md:h-20" src={LOGO} alt="logo" />
-      {selector && <UserIcon />}
+      {selector &&<div className="flex gap-4 items-center">
+      <button className="px-4 py-2 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800" onClick={handleGPTSearchButton}>{!isGPTSearch?"GPT Search":"HomePage"}</button>
+        <UserIcon />
+        </div>}
     </div>
   );
 };
