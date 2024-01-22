@@ -16,7 +16,7 @@ const UserIcon = () => {
   return (
     <div className="pr-4 md:pr-8 group relative duration-200">
           <div
-            className="bg-red-500 text-white font-bold px-3 py-2 rounded-md cursor-pointer"
+            className="bg-red-500 text-white font-bold p-1 text-xs md:text-md md:px-4 md:py-2 rounded-md cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

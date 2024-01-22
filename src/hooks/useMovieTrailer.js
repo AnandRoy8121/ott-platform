@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideo } from "../utils/movieSlice";
 import { TMDB_APIOptions } from "../utils/constants";
 
 const useMovieTrailer = (videoID) => {
   const dispatch = useDispatch();
+  const trailer = useSelector(store=>store.movies.trailerVideo)
   useEffect(() => {
-    getVideos();
+    !trailer && getVideos();
   }, []);
   const getVideos = async () => {
     const data = await fetch(

@@ -33,10 +33,10 @@ const Header = () => {
   }
 
   return (
-    <div className="flex items-center px-6 py-1 w-full absolute bg-gradient-to-b from-black justify-between z-50">
-      <img className="w-24 h-20 md:w-32 md:h-20" src={LOGO} alt="logo" />
+    <div className="flex md:flex-row items-center md:px-6 py-1 w-full absolute bg-gradient-to-b from-black justify-between z-50">
+      <img className="w-20 h-16 md:w-32 md:h-20" src={LOGO} alt="logo" />
       {selector &&<div className="flex gap-4 items-center">
-      <button className="px-4 py-2 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800" onClick={handleGPTSearchButton}>{!isGPTSearch?"GPT Search":"HomePage"}</button>
+      <button className="p-1 text-xs md:text-md md:px-4 md:py-2 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800" onClick={handleGPTSearchButton}>{!isGPTSearch?"GPT Search":"HomePage"}</button>
         <UserIcon />
         </div>}
     </div>
