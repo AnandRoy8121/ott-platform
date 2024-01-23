@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# OTT-Platform with Movie Recommendation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Project Screenshots](screenshots/signup.png)
+![Project Screenshots](screenshots/login.png)
+![Project Screenshots](screenshots/hero.png)
+![Project Screenshots](screenshots/body.png)
+![Project Screenshots](screenshots/gptSearch.png)
+![Project Screenshots](screenshots/movie.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Demo
+Check out the live demo: [Netflix Clone Demo](https://ott-platform-d5cf6.web.app/)
 
-### `npm start`
+## Technologies Used
+- React
+- React Router
+- Tailwind CSS
+- Node.js
+- GPT API
+- TMDB API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+1. Clone the repository: `git clone https://github.com/AnandRoy8121/ott-platform.git`
+2. Navigate to the project directory: `cd ott-platform`
+3. Install dependencies: `npm install`
+4. Start the application: `npm start`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Use
+- Navigate through different movie categories.
+- Click on a movie to get more details.
+- Receive personalized movie recommendations using the GPT API.
 
-### `npm test`
+## Features
+- Netflix-like UI with dynamic movie categories.
+- Detailed movie information from TMDB API.
+- Personalized movie recommendations powered by GPT.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API Integrations
+- GPT API: Sign up for an API key [here](https://platform.openai.com/).
+- TMDB API: Get an API key [here](https://www.themoviedb.org/documentation/api).
 
-### `npm run build`
+## Code Structure
+- `/src`: React application source code.
+- `/public`: Public assets and HTML template.
+- `/screenshots`: Screenshots used in the README.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Acknowledgments
+- This project uses the GPT API by [GPT-3.5](https://platform.openai.com/).
+- Movie data is fetched from [TMDB](https://www.themoviedb.org/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Future Improvements
+- Implement user authentication.
+- Allow users to save favorite movies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contact Information
+- GitHub: [Your GitHub Profile](https://github.com/AnandRoy8121)
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/anand-roy-2ba991127/)
+- Email: anandroy151997@gmail.com.com
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Code Examples
+```javascript
+// Sample code snippet showcasing a React component
+import React from 'react'
+import { TMDB_ImageCDNUrl } from '../utils/constants'
+import { Link } from 'react-router-dom'
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const MovieCard = ({posterPath,movie}) => {
+  if(! posterPath) return
+  return (
+    <div className='cursor-pointer rounded-md shadow-md shadow-gray-600'>
+      <Link to={`/movie/${movie.id}`} state= {{ movie: movie }}>
+       <img className='md:w-36 w-28 sm:w-32 hover:scale-105 duration-200 object-cover rounded-md' src={TMDB_ImageCDNUrl+posterPath} alt="movie image" />
+       </Link>
+    </div>
+  )
+}
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default MovieCard;

@@ -9,9 +9,9 @@ const MoviePage = () => {
     const {state} = useLocation()
     console.log(state?.movie)
   return (
-    <div className='p-4 md:p10 bg-black/80 text-white'>
+    <div className='p-4 md:p10 text-white bg-black/90'>
       <h1 className='md:text-5xl text-2xl text-center mb-4 md:mb-8 font-semibold'>{state?.movie.title}</h1>
-        <div className='mx-auto rounded-lg shadow-lg' style={{ height: '70vh' }}>
+        <div className='mx-auto' style={{ height: '70vh' }}>
             <img className='object-contain h-full w-full rounded-lg shadow-white' src={TMDB_ImageCDNUrl+state?.movie.poster_path} alt="movie_poster" />
         </div>
         <div className='flex flex-col gap-2 md:gap-4 px-4 py-2 md:px-10 md:py-4 items-center'>

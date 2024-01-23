@@ -9,14 +9,15 @@ const GPTSearchBar = () => {
   const dispatch = useDispatch()
 
   const handleOpenAiSearch = async()=>{
-    console.log(searchText.current.value)
+
+    try {
+      
     const searchPrompt = "Act as a movie recommendation system and suggest some movies for the query: "+searchText.current.value+". Only give names of 5 movies, comma separated like the example result given ahead. Example result : 3 idiots, Koi mil gaya, swadesh, kick, 12th fail"
     const chatCompletion = await openai.chat.completions.create({
       messages: [{ role: 'user', content: searchPrompt }],
       model: 'gpt-3.5-turbo',
     });
 
-    console.log(chatCompletion?.choices[0]?.message?.content)
     const gptMovies = chatCompletion?.choices[0]?.message?.content.split(",")
     // const gptMovies = ["3 idiots", "Koi mil gaya", "swadesh", "kick", "12th fail"]
 
@@ -24,9 +25,15 @@ const GPTSearchBar = () => {
     const allMovies = gptMovies.map((gptMovie)=>searchMovies(gptMovie))
 
     const movies = await Promise.all(allMovies)
-    console.log(movies)
     dispatch(addGPTMovies({movieNames:gptMovies,movieResults:movies}))
+
+    } catch (error) {
+      console.log(error.message)
+      alert("GPT API is not reachable: "+error.message)
+    }
   }
+  
+  
 
   const searchMovies =async(movie)=>{
       const data = await fetch('https://api.themoviedb.org/3/search/movie?query='+movie+'&include_adult=false&language=en-US&page=1',TMDB_APIOptions)
