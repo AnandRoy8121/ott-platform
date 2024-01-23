@@ -53,8 +53,8 @@ Check out the live demo: [Netflix Clone Demo](https://ott-platform-d5cf6.web.app
 - Allow users to save favorite movies.
 
 ## Contact Information
-- GitHub: [Your GitHub Profile](https://github.com/AnandRoy8121)
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/anand-roy-2ba991127/)
+- GitHub: [My GitHub Profile](https://github.com/AnandRoy8121)
+- LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/anand-roy-2ba991127/)
 - Email: anandroy151997@gmail.com.com
 
 
